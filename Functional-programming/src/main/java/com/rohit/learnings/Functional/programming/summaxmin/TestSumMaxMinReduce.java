@@ -15,7 +15,7 @@ public class TestSumMaxMinReduce {
                 new Melon("Hemi", 1600), new Melon("Gac", 3000),
                 new Melon("Apollo", 2000), new Melon("Horned", 1700));
 
-        
+
         int totalWeightOfMelons = Functional.getTotalWeight(melons);
         int allMelonWeights = Functional.getTotalWeightOfMelonsByReduce(melons);
         System.out.println(totalWeightOfMelons);

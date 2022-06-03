@@ -3,6 +3,9 @@ package com.rohit.learnings.Functional.programming.summaxmin;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.TreeSet;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class Functional {
 
@@ -56,4 +59,14 @@ public class Functional {
                 .reduce(Integer::min)
                 .orElse(-1);
     }
+
+    //Filter melons that are heavier than 1,000 grams,
+    // collect the result without duplicates, and sort into ascending order
+    public static TreeSet<Integer> getMelonsHeavierThanCertainWeigh(List<Melon> melons) {
+        return melons.stream()
+                .map(Melon::getWeight)
+                .filter(weight -> weight >= 1000)
+                .collect(Collectors.toCollection(TreeSet::new));
+    }
+
 }
