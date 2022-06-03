@@ -31,6 +31,10 @@ public class HighOrderFunctions {
 
     }
 
+
+    //map generally provides a new Stream, this stream will be Stream<List<String>> or Stream<Stream<R>
+    //Certain operations such as distinct() won't work as it will return distinct list<String>
+    //Flatmap will flatten the whole structure for such use cases.
     public static List<String> randomStringsWithLambda(List<String> input) {
         return input.stream()
                 .map(string -> {
@@ -58,9 +62,22 @@ public class HighOrderFunctions {
         strings.stream()
                 .peek(p -> System.out.println("\tstream():" + p))
                 .filter(s -> s.startsWith("R"))
-                .peek(p -> System.out.println("\tfilter():" + p))
+                .peek(p -> System.out.println("\tfilter():" + p))// data should not be mutated inside peek, its a bad practise.
                 .map(String::toUpperCase)
                 .peek(p -> System.out.println("\tmap():" + p))
                 .collect(Collectors.toList());
     }
+
+    /*
+    Some stream methods
+    List<Integer> result = ints.stream()
+            .filter(i -> i != 0) // filters based on condition , avoid using long conditions, better use method reference
+            .distinct() //only selects distinct elements
+            .skip(1)  //skips first element from the stream result
+            .limit(2) //limit to only 2 results
+            .sorted() // natural sorting, we can pass comparator also
+            .collect(Collectors.toList());
+
+
+    */
 }
