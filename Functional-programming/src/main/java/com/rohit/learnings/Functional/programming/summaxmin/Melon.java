@@ -59,4 +59,10 @@ public class Melon {
         return Objects.equals(this.type, other.type);
     }
 
+    public static int growing100g(Melon melon) {
+        melon.setWeight(melon.getWeight() + 100);
+
+        return melon.getWeight();
+    }
+
 }
