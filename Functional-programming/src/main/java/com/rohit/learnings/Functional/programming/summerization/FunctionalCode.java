@@ -18,13 +18,14 @@ public class FunctionalCode {
                 .collect(Collectors.summingInt(Melon::getWeight)) / 1000.0d;
     }
 
-    public static int getMelonsWeightSumResuce(List<Melon> melons) {
+    //// reduce- identity,accumulator,combiner, here it starts from 0 and keeps adding all the weights
+    public static int getMelonsWeightSumReduce(List<Melon> melons) {
         return melons.stream()
-                .collect(Collectors.reducing(0, m -> m.getWeight(),(m1,m2) -> m1+m2));
+                .collect(Collectors.reducing(0, Melon::getWeight, Integer::sum));
     }
 
     public static double getMelonsWeightSumKgReduce(List<Melon> melons) {
         return melons.stream()
-                .collect(Collectors.reducing(0,m -> m.getWeight(), (m1,m2) -> m1+m2)) /1000.0d;
+                .collect(Collectors.reducing(0,Melon::getWeight, (m1,m2) -> m1+m2)) /1000.0d;
     }
 }

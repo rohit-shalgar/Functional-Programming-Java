@@ -25,7 +25,7 @@ public class TestSummerization {
         Assert.isTrue(melonWeightsInKg == 10.3d);
 
 
-        int melonWeightsInGms = FunctionalCode.getMelonsWeightSumResuce(melons);
+        int melonWeightsInGms = FunctionalCode.getMelonsWeightSumReduce(melons);
 
         System.out.println("Sum of all the melon weights is ->"+melonWeightsInGms);
         Assert.isTrue(melonWeightsInGms == 10300);
