@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 public class FunctionalCode {
 
     //Collect the word frequency count in an given string
-    public static Map<String,Integer> getEachWordCount(){
+    public static Map<String, Integer> getEachWordCount() {
 
         String str = "orem Ipsum is simply \n" +
                 "    Ipsum Lorem not simply Ipsum";
@@ -21,7 +21,7 @@ public class FunctionalCode {
                 .map(s -> s.split("\\s+"))
                 .flatMap(Arrays::stream)
                 .collect(Collectors.toMap(
-                        String::toLowerCase, s -> 1,Integer::sum));
+                        String::toLowerCase, s -> 1, Integer::sum));
 
     }
 
@@ -29,12 +29,12 @@ public class FunctionalCode {
     // you can a delimiter,prefix and suffix as well.
 
     //Q- get all the MELON names in sorted order
-    public static String getMelonsAvailable(List<Melon> melons){
+    public static String getMelonsAvailable(List<Melon> melons) {
         return melons.stream()
                 .map(Melon::getType)
                 .distinct()
                 .sorted()
-                .collect(Collectors.joining(",","Available Melons are -"," Thank you!"));
+                .collect(Collectors.joining(",", "Available Melons are -", " Thank you!"));
     }
 
 }

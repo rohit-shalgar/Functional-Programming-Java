@@ -25,6 +25,7 @@ public class HighOrderFunctions {
     }
 
     //reduce - identity,accumulator,combiner
+    @SafeVarargs
     public static Function<String, String> reduceStrings(Function<String, String>... functions) {
 
         return Stream.of(functions).reduce(Function.identity(), Function::andThen);

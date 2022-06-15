@@ -1,0 +1,1 @@
+Stream.ofNullable() indicates stream has null elements.
